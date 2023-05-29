@@ -27,14 +27,19 @@ export const CardImage = styled.div`
 `;
 
 export const CardAuthor = styled.p`
-  color: #5A5A5A;
+  color: #5a5a5a;
   padding-left: 10px;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  margin-bottom: 10px;
 `;
 
 export const CardTitle = styled.p`
   font-size: 20px;
   padding-left: 10px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
 `;
 
 export const CardGrid = styled.div`
@@ -48,5 +53,7 @@ export const CardGrid = styled.div`
 `;
 
 export const CardGridItemTitle = styled.p`
-  color: #CFCFCF;
+  color: #cfcfcf;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
 `;

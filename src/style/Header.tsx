@@ -15,4 +15,6 @@ export const HeaderText = styled.p`
   align-items: center;
   justify-content: center;
   height: 50px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
 `;
