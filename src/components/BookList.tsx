@@ -4,6 +4,10 @@ import { AddBook } from "./AddBook";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch, RootState } from "../store";
 import { Book } from "../store/models/books";
+import React from "react";
+import { BookListContainer, BookListInfo, AddButton } from "../style/BookList";
+import { CardTitle } from "../style/Card";
+import { ModalContainer, ModalTitle, ModalHeader, ModalContent, CloseButton } from "../style/Modal";
 
 export const BookList = () => {
   const [isAddBookModalOpen, setIsAddBookModalOpen] = useState(false);
@@ -23,29 +27,29 @@ export const BookList = () => {
   };
   
   return (
-    <div className="book-list">
-      <div className="info">
-        <p className="card-title">Books ({books.length})</p>
-        <button className="add-button" onClick={showModal}>
+    <BookListContainer>
+      <BookListInfo>
+        <CardTitle>Books ({books.length})</CardTitle>
+        <AddButton onClick={showModal}>
           Add +
-        </button>
-      </div>
+        </AddButton>
+      </BookListInfo>
       {books.map((book) => (
         <Card key={book.id} {...book} />
       ))}
       {isAddBookModalOpen && (
-        <div id="addModal" className="modal">
-          <div className="modal-content">
-            <div className="modal-header">
-              <p className="modal-title">Add Book</p>
-              <button className="close" onClick={closeModal}>
+        <ModalContainer id="addModal">
+          <ModalContent>
+            <ModalHeader>
+              <ModalTitle>Add Book</ModalTitle>
+              <CloseButton onClick={closeModal}>
                 &times;
-              </button>
-            </div>
+              </CloseButton>
+            </ModalHeader>
             <AddBook setModalOpen = {setIsAddBookModalOpen} />
-          </div>
-        </div>
+          </ModalContent>
+        </ModalContainer>
       )}
-    </div>
+    </BookListContainer>
   );
 };

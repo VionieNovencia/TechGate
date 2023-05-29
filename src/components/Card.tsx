@@ -1,4 +1,6 @@
 import { Book } from '../store/models/books';
+import React from 'react';
+import { CardContainer, CardInfo, CardAuthor, CardImage, CardTitle, CardGrid, CardGridItemTitle } from '../style/Card';
 
 export const Card = ( book : Book) => {
   const formatDate = (dateString: string) => {
@@ -9,32 +11,32 @@ export const Card = ( book : Book) => {
     });
   };
     return (
-      <div className="card">
-        <div className="card-info">
-          <p className="card-title">{book.title}</p>
-          <p className="card-author">Book by {book.author}</p>
-          <div className="grid-container">
-            <div className="item1">
-              <p className="item-title">ISBN</p>
+      <CardContainer>
+        <CardInfo>
+          <CardTitle>{book.title}</CardTitle>
+          <CardAuthor>Book by {book.author}</CardAuthor>
+          <CardGrid>
+            <div>
+              <CardGridItemTitle>ISBN</CardGridItemTitle>
               <p>{book.isbn}</p>
             </div>
-            <div className="item2">
-              <p className="item-title">Number of Page</p>
+            <div>
+              <CardGridItemTitle>Number of Page</CardGridItemTitle>
               <p>{book.numberOfPages}</p>
             </div>
-            <div className="item3">
-              <p className="item-title">Published on </p>
+            <div>
+              <CardGridItemTitle>Published on </CardGridItemTitle>
               <p>{formatDate(book.publishedOn)}</p>
             </div>
-            <div className="item4">
-              <p className="item-title">Country Publisher</p>
+            <div>
+              <CardGridItemTitle>Country Publisher</CardGridItemTitle>
               <p>{book.country}</p>
             </div>
-          </div>
-        </div>
-        <div className="card-image">
+          </CardGrid>
+        </CardInfo>
+        <CardImage>
           <img src={book.imageUrl} alt={book.title} />
-        </div>
-      </div>
+        </CardImage>
+      </CardContainer>
     );
 }

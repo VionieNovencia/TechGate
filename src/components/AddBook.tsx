@@ -2,7 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, Dispatch } from "../store";
 import { Country } from "../store/models/countries";
 import { Book } from "../store/models/books";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { AddForm, Input, SubmitButton, Select, Label, ErrorMessage, FormItem, Error } from "../style/Form";
 
 export const AddBook = ({
   setModalOpen,
@@ -63,7 +64,7 @@ export const AddBook = ({
     if (author.length > 0 && !/^[A-Za-z0-9\s]+$/.test(author)) {
       setAuthorError("Author not valid");
     }
-    if (isbn.length > 0 && !/^[A-Za-z0-9\s]+$/.test(isbn)) {
+    if (isbn.length > 0 && !/^[a-zA-Z0-9-]+$/.test(isbn)) {
       setIsbnError("ISBN not valid");
     }
     setIsLoading(false);
@@ -114,13 +115,13 @@ export const AddBook = ({
 
   return (
     <div>
-      <form className="add-form" onSubmit={handleSubmit}>
-        <div className="form-item">
+      <AddForm onSubmit={handleSubmit}>
+        <FormItem>
           <label htmlFor="title">
             Title
-            {titleError.length > 0 && <span className="error"> *</span>}
+            {titleError.length > 0 && <Error> *</Error>}
           </label>
-          <input
+          <Input
             type="text"
             id="title"
             name="title"
@@ -129,13 +130,13 @@ export const AddBook = ({
               setTitle(e.target.value);
               setTitleError("");
             }}
-            className={titleError.length > 0 ? "error-input" : ""}
+            style={{ border: titleError.length > 0 ? "1px solid red" : "" }}
           />
-          <label htmlFor="author">
+          <Label htmlFor="author">
             Author
-            {authorError.length > 0 && <span className="error"> **</span>}
-          </label>
-          <input
+            {authorError.length > 0 && <Error> **</Error>}
+          </Label>
+          <Input
             type="text"
             id="author"
             name="author"
@@ -144,13 +145,13 @@ export const AddBook = ({
               setAuthor(e.target.value);
               setAuthorError("");
             }}
-            className={authorError.length > 0 ? "error-input" : ""}
+            style={{ border: authorError.length > 0 ? "1px solid red" : "" }}
           />
-          <label htmlFor="isbn">
+          <Label htmlFor="isbn">
             ISBN
-            {isbnError.length > 0 && <span className="error"> ***</span>}
-          </label>
-          <input
+            {isbnError.length > 0 && <Error> ***</Error>}
+          </Label>
+          <Input
             type="text"
             id="isbn"
             name="isbn"
@@ -159,15 +160,13 @@ export const AddBook = ({
               setIsbn(e.target.value);
               setIsbnError("");
             }}
-            className={isbnError.length > 0 ? "error-input" : ""}
+            style={{ border: isbnError.length > 0 ? "1px solid red" : "" }}
           />
-          <label htmlFor="publishedOn">
+          <Label htmlFor="publishedOn">
             Published On
-            {publishedOnError.length > 0 && (
-              <span className="error"> ****</span>
-            )}
-          </label>
-          <input
+            {publishedOnError.length > 0 && <Error> ****</Error>}
+          </Label>
+          <Input
             type="date"
             id="publishedOn"
             name="publishedOn"
@@ -176,15 +175,13 @@ export const AddBook = ({
               setPublishedOn(e.target.value);
               setPublishedOnError("");
             }}
-            className={publishedOnError.length > 0 ? "error-input" : ""}
+            style={{ border: publishedOnError.length > 0 ? "1px solid red" : "" }}
           />
-          <label htmlFor="numberOfPages">
+          <Label htmlFor="numberOfPages">
             Number of Pages
-            {numberOfPagesError.length > 0 && (
-              <span className="error"> *****</span>
-            )}
-          </label>
-          <input
+            {numberOfPagesError.length > 0 && <Error> *****</Error>}
+          </Label>
+          <Input
             type="number"
             id="numberOfPages"
             name="numberOfPages"
@@ -193,21 +190,21 @@ export const AddBook = ({
               setNumberOfPages(e.target.value);
               setNumberOfPagesError("");
             }}
-            className={numberOfPagesError.length > 0 ? "error-input" : ""}
+            style={{ border: numberOfPagesError.length > 0 ? "1px solid red" : "" }}
             min={1}
           />
-          <label htmlFor="country">
+          <Label htmlFor="country">
             Country
-            {countryError.length > 0 && <span className="error"> ******</span>}
-          </label>
-          <select
+            {countryError.length > 0 && <Error> ******</Error>}
+          </Label>
+          <Select
             name="country"
             id="country"
             onChange={(e) => {
               setCountry(e.target.value);
               setCountryError("");
             }}
-            className={countryError.length > 0 ? "error-input" : ""}
+            style={{ border: countryError.length > 0 ? "1px solid red" : "" }}
           >
             <option value="">Choose country</option>
             {countries.map((country) => (
@@ -215,34 +212,24 @@ export const AddBook = ({
                 {country.name}
               </option>
             ))}
-          </select>
+          </Select>
           <div>
-            <button className="submit-button" type="submit">
-              Submit
-            </button>
-            <div className="error-message">
-              {titleError.length > 0 && (
-                <span className="error">* {titleError}</span>
-              )}
-              {authorError.length > 0 && (
-                <span className="error">** {authorError}</span>
-              )}
-              {isbnError.length > 0 && (
-                <span className="error">*** {isbnError}</span>
-              )}
+            <SubmitButton type="submit">Submit</SubmitButton>
+            <ErrorMessage>
+              {titleError.length > 0 && <Error>* {titleError}</Error>}
+              {authorError.length > 0 && <Error>** {authorError}</Error>}
+              {isbnError.length > 0 && <Error>*** {isbnError}</Error>}
               {publishedOnError.length > 0 && (
-                <span className="error">**** {publishedOnError}</span>
+                <Error>**** {publishedOnError}</Error>
               )}
               {numberOfPagesError.length > 0 && (
-                <span className="error">***** {numberOfPagesError}</span>
+                <Error>***** {numberOfPagesError}</Error>
               )}
-              {countryError.length > 0 && (
-                <span className="error">****** {countryError}</span>
-              )}
-            </div>
+              {countryError.length > 0 && <Error>****** {countryError}</Error>}
+            </ErrorMessage>
           </div>
-        </div>
-      </form>
+        </FormItem>
+      </AddForm>
     </div>
   );
 };
