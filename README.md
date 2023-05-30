@@ -1,7 +1,10 @@
 # MAKMUR Warmup Project - Book Store App
-Book list ![Screenshot 2023-05-29 132239](https://github.com/VionieNovencia/MAKMUR-Warmup-Project/assets/74034061/960be8e4-ed07-4ae3-a113-88db453ab7a0)
+Book list
+![Screenshot 2023-05-29 131926](https://github.com/VionieNovencia/MAKMUR-Warmup-Project/assets/74034061/b5f78c01-f384-4d49-966e-e708e858f305)
+
 Add book modal
-![Screenshot 2023-05-29 132333](https://github.com/VionieNovencia/MAKMUR-Warmup-Project/assets/74034061/b70e9f22-caf3-4d7c-8160-1484da787551)
+
+![Screenshot 2023-05-29 132333](https://github.com/VionieNovencia/MAKMUR-Warmup-Project/assets/74034061/9e2c55fd-aa99-4f91-9407-f3a7fb940351)
 
 ## How To Run
 1. Clone this repository
