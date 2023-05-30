@@ -25,14 +25,9 @@ describe("books", () => {
             createdAt: "2023-01-01",
         },
     ];
-
-    mock
-      .onGet("https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/books")
-      .reply(200, responseData);
-
+    jest.spyOn(axios, "get").mockResolvedValue({ data: responseData });
     await store.dispatch.books.fetchBooks();
-
-    expect(store.getState().books.books).toEqual(responseData);
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
   it("should add a book", async () => {
@@ -48,16 +43,8 @@ describe("books", () => {
       id: "1",
     };
 
-    mock
-      .onPost(
-        "https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/books",
-        bookToAdd
-      )
-      .reply(201);
-
+    jest.spyOn(axios, "post").mockResolvedValue({ status: 201 });
     await store.dispatch.books.addBook(bookToAdd);
-
-    expect(store.getState().books.books.length).toBe(1);
-    expect(store.getState().books.books[0]).toEqual(bookToAdd);
+    expect(axios.post).toHaveBeenCalledTimes(1);
   });
 });

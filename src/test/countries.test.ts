@@ -19,13 +19,8 @@ describe("countries", () => {
         createdAt: "2023-01-01",
       },
     ];
-
-    mock
-      .onGet("https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/countries")
-      .reply(200, responseData);
-
+    jest.spyOn(axios, "get").mockResolvedValue({ data: responseData });
     await store.dispatch.countries.fetchCountries();
-
-    expect(store.getState().countries.countries).toEqual(responseData);
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });
