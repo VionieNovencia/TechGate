@@ -6,6 +6,7 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Auth/Login';
 import RegisterPage from './pages/Auth/Register';
 import ForgotPasswordPage from './pages/Auth/ForgotPassword';
+import NotificationPage from './pages/Notification';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/notification" element={<NotificationPage />} />
       </Routes>
     
     </BrowserRouter>

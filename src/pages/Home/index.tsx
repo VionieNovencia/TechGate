@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Card from '../../components/Card';
 import Navbar from '../../components/Navbar';
