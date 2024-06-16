@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 
 import Typography from "../../../../components/Typography";
-import NavLink from "../../../../components/Link";
+import BaseButton from "../../../../components/BaseButton";
 
-import appleIcon from '../../../../assets/apple.png';
-import googleIcon from '../../../../assets/google.png';
-import facebookIcon from '../../../../assets/facebook.png';
 import hideIcon from '../../../../assets/hide.png';
 import showIcon from '../../../../assets/show.png';
 
 import styles from "../../styles";
-import BaseButton from "../../../../components/BaseButton";
 
-const Step1 = ({
+const Step4 = ({
   onNext
 }: {
   onNext: () => void
 }) => {
-  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
@@ -31,24 +26,12 @@ const Step1 = ({
   return (
     <React.Fragment>
       <Typography variant='headline' textAlign="center">
-        Welcome!
+        Forgot Password
       </Typography>
       <form onSubmit={handleRegister} className={styles.gap}>
         <div>
           <Typography variant="title1" >
-            Email
-          </Typography>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className={styles.inputContainer}
-          />
-        </div>
-        <div>
-          <Typography variant="title1" >
-            Password
+            New Password
           </Typography>
           <div className={styles.passwordContainer}>
             <input
@@ -92,36 +75,12 @@ const Step1 = ({
         </div>
         <button type="submit" className={styles.authButton}>
           <Typography variant="title2" color="white" textAlign="center">
-            Register
+            Submit
           </Typography>
         </button>
       </form>
-      <div className={styles.altAuth}>
-        <div className={styles.line}></div>
-        <Typography textAlign="center" color="#6C757D" margin={'auto'}>
-          or register with
-        </Typography>
-        <div className={styles.line}></div>
-      </div>
-      
-      <div className={styles.socialIconsContainer}>
-        <button className={styles.socialIcons}><img src={googleIcon} alt="Google" /></button>
-        <button className={styles.socialIcons}><img src={facebookIcon} alt="Facebook" /></button>
-        <button className={styles.socialIcons}><img src={appleIcon} alt="Apple" /></button>
-      </div>
-      <div className={styles.registrationLinks}>
-        <Typography variant="title2" margin={'0 5px 0 0'}>
-          Already have account? 
-        </Typography>
-        <NavLink to="/login" >
-          <Typography variant="title2" color="#FF7900">
-            {'  '}
-            Login now
-          </Typography>
-        </NavLink>
-      </div>
     </React.Fragment>
   );
 };
 
-export default Step1;
+export default Step4;

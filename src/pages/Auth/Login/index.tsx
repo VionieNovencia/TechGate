@@ -1,9 +1,11 @@
 import React, { useState} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import appleIcon from '../../../assets/apple.png';
 import googleIcon from '../../../assets/google.png';
 import facebookIcon from '../../../assets/facebook.png';
+import hideIcon from '../../../assets/hide.png';
+import showIcon from '../../../assets/show.png';
 
 import Navbar from "../../../components/Navbar";
 import Typography from "../../../components/Typography";
@@ -11,10 +13,13 @@ import Typography from "../../../components/Typography";
 import styles from '../styles';
 
 import { useAuth } from "../../../context/AuthContext";
+import NavLink from "../../../components/Link";
+import BaseButton from "../../../components/BaseButton";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   const {setIsLoggedIn} = useAuth()
   const navigate = useNavigate()
@@ -49,16 +54,28 @@ const LoginPage = () => {
             <Typography variant="title1" >
               Password
             </Typography>
+            <div className={styles.passwordContainer}>
             <input
-              type="password"
+              type={isShowPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               className={styles.passwordInput}
             />
-            <Typography textAlign="right" color="blue">
-              forgot password?
-            </Typography>
+            <BaseButton onClick={() => setIsShowPassword(!isShowPassword)}>
+              <img
+                src={isShowPassword ? showIcon : hideIcon}
+                alt="" 
+                width={24}
+                height={24}
+              />
+            </BaseButton>
+          </div>
+            <NavLink to='/forgot-password'>
+              <Typography textAlign="right" color="blue">
+                forgot password?
+              </Typography>
+            </NavLink>
           </div>
           <button type="submit" className={styles.authButton}>
             <Typography variant="title2" color="white" textAlign="center">
@@ -86,15 +103,15 @@ const LoginPage = () => {
         </button>
         </div>
         <div className={styles.registrationLinks}>
-          <Typography variant="title2" margin={'0 12px 0 0'}>
+          <Typography variant="title2" margin={'0 5px 0 0'}>
             Don't have account? 
           </Typography>
-          <Link to="/register" className={styles.link}>
+          <NavLink to="/register">
             <Typography variant="title2" color="#FF7900">
               {'  '}
               Register now
             </Typography>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

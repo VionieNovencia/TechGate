@@ -1,61 +1,95 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Typography from "../Typography";
+
+import notificationIcon from '../../assets/notification.png';
+import profileIcon from '../../assets/profile-picture.png';
 
 import { useAuth } from "../../context/AuthContext";
 
 import styles from './styles';
+import ProfileModal from "./ProfileModal";
+import BaseButton from "../BaseButton";
+import NavLink from "../Link";
 
 const Navbar = () => {
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(false);
   const {isLoggedIn} = useAuth()
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.navbar}>
       {!isLoggedIn && (
         <div className={styles.navbarContainer}>
-          <Link to='/' className={styles.link}>
+          <NavLink to='/'>
             <Typography
               variant='headline'
               color='#007BFF'
             >
               TechGate
             </Typography>
-          </Link>
-          <Link to='/login' className={styles.link}>
+          </NavLink>
+          <NavLink to='/login'>
             <Typography
               color='#FF7900'
             >
               Login
             </Typography>
-          </Link>
+          </NavLink>
         </div>
       )}
       {isLoggedIn && (
         <div className={styles.navbarContainerLoggedIn}>
-          <Link to='/' className={styles.link}>
+          <NavLink to='/'>
             <Typography
               variant='headline'
               color='#007BFF'
             >
               TechGate
             </Typography>
-          </Link>
-          <div className={styles.navbarMenu}>
-            <Link to='/' className={styles.link}>
-              <Typography>
-                Home
-              </Typography>
-            </Link>
-            <Link to='/jobs' className={styles.link}>
-              <Typography>
-                Jobs
-              </Typography>
-            </Link>
-            <Link to='/events' className={styles.link}>
-              <Typography>
-                Events
-              </Typography>
-            </Link>
+          </NavLink>
+          <div className={styles.navbarMenuContainer}>
+            <div className={styles.navbarMenu}>
+              <NavLink to='/'>
+                <Typography>
+                  Home
+                </Typography>
+              </NavLink>
+              <NavLink to='/jobs'>
+                <Typography>
+                  Jobs
+                </Typography>
+              </NavLink>
+              <NavLink to='/events'>
+                <Typography>
+                  Events
+                </Typography>
+              </NavLink>
+            </div>
+            <div className={styles.navbarMenu}>
+              <BaseButton onClick={() => navigate('/notification')}>
+                <img
+                  src={notificationIcon}
+                  alt="notificationIcon"
+                  width={30}
+                  height={30}
+                />
+              </BaseButton>
+              <BaseButton onClick={() => setIsProfileModalOpen(true)}>
+                <img
+                  src={profileIcon}
+                  alt="Profile"
+                  width={40}
+                  height={40}
+                />
+              </BaseButton>
+            </div>
           </div>
+          <ProfileModal
+            isOpen={isProfileModalOpen}
+            onClose={() => setIsProfileModalOpen(false)}
+          />
         </div>
         )
       }

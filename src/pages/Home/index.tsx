@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar';
 import CompanyIcon from '../../assets/traveloka_logo.jpeg';
 
 import styles from './styles';
+import SearchInput from './SearchField';
 
 const HomePage = () => {
 
@@ -13,6 +14,7 @@ const HomePage = () => {
     <div className={styles.container}> 
       <Navbar />
       <div className={styles.contentContainer}>
+        <SearchInput />
         <div className={styles.content}>
           <Card
             title='Frontend Developer'

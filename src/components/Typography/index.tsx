@@ -5,7 +5,6 @@ type Variant = 'headline' | 'title1' | 'title2' | 'body' | 'caption';
 interface TypographyProps {
   children: React.ReactNode;
   variant?: Variant;
-  // Other props...
 }
 
 const variants = {
@@ -25,6 +24,7 @@ interface TypographyProps {
   textAlign?: 'left' | 'center' | 'right' | 'justify';
   lineHeight?: string;
   margin?: string;
+  width?: string;
 }
 
 const Typography: React.FC<TypographyProps> = ({
@@ -35,6 +35,7 @@ const Typography: React.FC<TypographyProps> = ({
   fontStyle = 'normal',
   textAlign = 'left',
   margin,
+  width,
 }) => {
   const style = {
     color,
@@ -43,8 +44,8 @@ const Typography: React.FC<TypographyProps> = ({
     textAlign,
     margin,
     ...variants[variant],
+    width,
   };
-  console.log(style)
 
   return (
     <div style={style}>

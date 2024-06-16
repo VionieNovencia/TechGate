@@ -29,21 +29,31 @@ const navbarContainerLoggedIn = css`
   gap: 60px;
 `;
 
+const navbarMenuContainer = css`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 const navbarMenu = css`
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 20px;  
+  gap: 20px;
 `;
 
-const link = css`
-  text-decoration: none;
+const buttonIcon = css`
+  border: none;
+  background: none;
+  cursor: pointer;
 `
-
 export default {
   navbar,
   navbarContainerLoggedIn,
   navbarMenu,
+  navbarMenuContainer,
   navbarContainer,
-  link,
+  buttonIcon
 }

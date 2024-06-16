@@ -16,10 +16,22 @@ const authContainer = css`
   display: flex;
   flex-direction: column;
   gap: 15px;
-`
+`;
+
 const inputContainer = css`
   width: 300px; 
   padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+`;
+
+const pinInputContainer = css`
+  text-align: center;
+  font-size: 20px;
+  width: 40px; 
+  padding: 10px 0;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -94,6 +106,14 @@ const gap = css`
   gap: 10px;
 `;
 
+const flexColumnCenter = css`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+
 const altAuth = css`
   display: flex;
   flex-direction: row;
@@ -108,16 +128,25 @@ const line = css`
   width: 100%;
 `;
 
-const passwordInput = css`
+const passwordContainer = css`
   width: 300px; 
+  margin: 8px 0;
   padding: 10px;
-  margin: 8px 0 0 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
-const link = css`
-  text-decoration: none;
+const passwordInput = css`
+  width: 300px; 
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const checkbox = css`
@@ -129,7 +158,7 @@ const checkbox = css`
 const dropdownContainer = css`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 15px;
 `;
 
 const noExperienceContainer = css`
@@ -169,7 +198,6 @@ export default {
   socialIcons,
   socialIconsContainer,
   passwordInput,
-  link,
   checkbox,
   dateInputContainer,
   dropdownContainer,
@@ -178,4 +206,7 @@ export default {
   tagContainer,
   multipleInputContainer,
   multipleInput,
+  pinInputContainer,
+  flexColumnCenter,
+  passwordContainer,
 }
