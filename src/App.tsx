@@ -7,6 +7,7 @@ import LoginPage from './pages/Auth/Login';
 import RegisterPage from './pages/Auth/Register';
 import ForgotPasswordPage from './pages/Auth/ForgotPassword';
 import NotificationPage from './pages/Notification';
+import NotificationDetailPage from './pages/NotificationDetail';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/notification" element={<NotificationPage />} />
+        <Route path="/notification/:id" element={<NotificationDetailPage />} />
       </Routes>
     
     </BrowserRouter>

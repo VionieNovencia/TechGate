@@ -6,16 +6,20 @@ import Navbar from "../../components/Navbar";
 import { Notifications } from "../../data/Notification";
 import Card from "./Card";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NotificationPage = () => {
   const {notification, setNotification} = useAuth();
+  const navigate = useNavigate()
 
   const handleClick = ({id}: {id:string}) => {
     setNotification({
-    ...notification,
-    [id]: true,
-  });
-  }
+      ...notification,
+      [id]: true,
+    });
+    navigate(`/notification/${id}`);
+  };
+  
   return (
     <div className={styles.container}>
       <Navbar />

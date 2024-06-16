@@ -56,14 +56,14 @@ const Card = ({
   return (
     <div className={styles.container} onClick={onClick}>
       <img src={getNotificationIcon()} alt="" width={60} height={60}/>
-      <div>
+      <div className={styles.content}>
         <Typography variant="title2">
           {notificationItem.title}
         </Typography>
         <Typography>
           {notificationItem.date}
         </Typography>
-        <Typography>
+        <Typography className={styles.ellipsis}>
           {notificationItem.desc}
         </Typography>
       </div>

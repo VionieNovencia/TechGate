@@ -1,20 +1,6 @@
 import React from 'react';
 
-type Variant = 'headline' | 'title1' | 'title2' | 'body' | 'caption';
-
-interface TypographyProps {
-  children: React.ReactNode;
-  variant?: Variant;
-}
-
-const variants = {
-  headline: { fontSize: '30px', fontWeight: '500', lineHeight: '30px', fontFamily: 'Montserrat' },
-  title1: { fontSize: '20px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Montserrat' },
-  title2: { fontSize: '16px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Montserrat' },
-  title3: { fontSize: '16px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Open Sans' },
-  body: { fontSize: '14px', lineHeight: '24px', fontFamily: 'Open Sans' },
-  caption: { fontSize: '12px', lineHeight: '24px', fontFamily: 'Open Sans' },
-};
+type Variant = 'headline' | 'title1' | 'title2' | 'title3' | 'body' | 'caption';
 
 interface TypographyProps {
   children: React.ReactNode;
@@ -26,7 +12,17 @@ interface TypographyProps {
   lineHeight?: string;
   margin?: string;
   width?: string;
+  className?: string;
 }
+
+const variants = {
+  headline: { fontSize: '30px', fontWeight: '500', lineHeight: '30px', fontFamily: 'Montserrat' },
+  title1: { fontSize: '20px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Montserrat' },
+  title2: { fontSize: '16px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Montserrat' },
+  title3: { fontSize: '16px', fontWeight: '500', lineHeight: '26px', fontFamily: 'Open Sans' },
+  body: { fontSize: '14px', lineHeight: '24px', fontFamily: 'Open Sans' },
+  caption: { fontSize: '12px', lineHeight: '24px', fontFamily: 'Open Sans' },
+};
 
 const Typography: React.FC<TypographyProps> = ({
   children,
@@ -37,6 +33,7 @@ const Typography: React.FC<TypographyProps> = ({
   textAlign = 'left',
   margin,
   width,
+  className, // Include className in the destructured props
 }) => {
   const style = {
     color,
@@ -49,7 +46,7 @@ const Typography: React.FC<TypographyProps> = ({
   };
 
   return (
-    <div style={style}>
+    <div style={style} className={className}>
       {children}
     </div>
   );
