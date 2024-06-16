@@ -5,6 +5,7 @@ const container = css`
   border-radius: 15px;
   border: 1px solid #49534B;
   height: fit-content;
+  max-width: 580px;
 `;
 
 const headSection = css`
@@ -37,6 +38,7 @@ const gap20px = css`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 5px;
 `;
 
 const gap5px = css`
