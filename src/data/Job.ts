@@ -1,0 +1,61 @@
+import TravelokaIcon from '../assets/traveloka_logo.jpeg';
+import GrabIcon from '../assets/Grab.png';
+
+export const Jobs = {
+  1: {
+    title: 'Frontend Developer',
+    icon: TravelokaIcon,
+    company: 'Traveloka',
+    location: 'Jakarta',
+    startWage: 5000000,
+    endWage: 7000000,
+    posted: 5,
+    type: 'Fulltime',
+    applicants: 20,
+  },
+  2: {
+    title: 'Backend Developer',
+    icon: TravelokaIcon,
+    company: 'Traveloka',
+    location: 'Jakarta',
+    startWage: 5000000,
+    endWage: 7000000,
+    posted: 7,
+  },
+  3: {
+    title: 'Quality Assurance',
+    icon: TravelokaIcon,
+    company: 'Traveloka',
+    location: 'Jakarta',
+    startWage: 4000000,
+    endWage: 7000000,
+    posted: 6,
+  },
+  4: {
+    title: 'Frontend Developer',
+    icon: GrabIcon,
+    company: 'Grab',
+    location: 'Bandung',
+    startWage: 5000000,
+    endWage: 7000000,
+    posted: 10,
+  },
+  5: {
+    title: 'Backend Developer',
+    icon: GrabIcon,
+    company: 'Grab',
+    location: 'Bandung',
+    startWage: 5000000,
+    endWage: 7000000,
+    posted: 3,
+  },
+  6: {
+    title: 'Quality Assurance',
+    icon: GrabIcon,
+    company: 'Grab',
+    location: 'Bandung',
+    startWage: 4000000,
+    endWage: 7000000,
+    posted: 2,
+  },
+}
