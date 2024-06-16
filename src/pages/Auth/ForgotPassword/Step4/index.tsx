@@ -30,7 +30,7 @@ const Step4 = ({
       </Typography>
       <form onSubmit={handleRegister} className={styles.gap}>
         <div>
-          <Typography variant="title1" >
+          <Typography variant="title2" >
             New Password
           </Typography>
           <div className={styles.passwordContainer}>
@@ -52,7 +52,7 @@ const Step4 = ({
           </div>
         </div>
         <div>
-          <Typography variant="title1" >
+          <Typography variant="title2" >
             Confirm Password
           </Typography>
           <div className={styles.passwordContainer}>

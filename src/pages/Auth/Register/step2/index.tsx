@@ -21,7 +21,7 @@ const Step2= ({
   return (
     <form onSubmit={handleRegister} className={styles.gap}>
       <div>
-        <Typography variant="title1" >
+        <Typography variant="title2" >
           First Name
         </Typography>
         <input
@@ -33,7 +33,7 @@ const Step2= ({
         />
       </div>
       <div>
-        <Typography variant="title1" >
+        <Typography variant="title2" >
           Last Name
         </Typography>
         <input
@@ -45,7 +45,7 @@ const Step2= ({
         />
       </div>
       <div>
-        <Typography variant="title1" >
+        <Typography variant="title2" >
           Location
         </Typography>
         <input

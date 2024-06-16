@@ -26,8 +26,6 @@ const Step4 = ({ onNext }: { onNext: () => void }) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Desired Job Titles/Positions:', jobTitles);
-    console.log('Preferred work Locations:', locations);
     onNext();
   };
 
@@ -35,7 +33,7 @@ const Step4 = ({ onNext }: { onNext: () => void }) => {
     <div>
       <form onSubmit={handleSubmit} className={styles.gap}>
         <div>
-          <Typography variant="title1">
+          <Typography variant="title2">
             Desired Job Title/Position
           </Typography>
           <div className={styles.multipleInputContainer}>

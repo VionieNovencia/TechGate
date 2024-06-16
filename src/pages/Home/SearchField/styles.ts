@@ -13,12 +13,15 @@ const container = css`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
 `;
 
 const flexRow = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 20px;
+  width: 920px;
 `;
 
 const searchContainer = css`

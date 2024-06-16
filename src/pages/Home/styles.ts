@@ -14,17 +14,37 @@ const contentContainer = css`
   gap: 30px;
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+`;
+
+const contentWithDetailContainer = css`
+  width: 1200px;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
 `;
 
 const content = css`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: calc(100vh - 200px);
+`;
+
+const contentWithDetail = css`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: calc(100vh - 200px);
 `;
   
 export default {
   container,
   content,
   contentContainer,
+  contentWithDetailContainer,
+  contentWithDetail,
 }

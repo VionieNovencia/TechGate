@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 import Card from '../../components/Card';
 import Navbar from '../../components/Navbar';
@@ -6,12 +6,14 @@ import Navbar from '../../components/Navbar';
 import styles from './styles';
 import SearchInput from './SearchField';
 import { Jobs } from '../../data/Job';
+import JobDetail from '../../components/JobDetail';
 
 const HomePage = () => {
   const [job, setJob] = useState<string>('');
   const [location, setLocation] = useState<string>('');
   const [startWage, setStartWage] = useState<number>(0);
   const [endWage, setEndWage] = useState<number>(0);
+  const [selectedJob, setSelectedJob] = useState<string>('');
 
   const filteredJobs = useMemo(() => {
     return Object.values(Jobs).filter((jobItem) => {
@@ -26,21 +28,22 @@ const HomePage = () => {
   return (
     <div className={styles.container}>
       <Navbar />
-      <div className={styles.contentContainer}>
-        <SearchInput
-          job={job}
-          setJob={setJob}
-          location={location}
-          setLocation={setLocation}
-          startWage={startWage}
-          setStartWage={setStartWage}
-          endWage={endWage}
-          setEndWage={setEndWage}
-        />
-        <div className={styles.content}>
+      <SearchInput
+            job={job}
+            setJob={setJob}
+            location={location}
+            setLocation={setLocation}
+            startWage={startWage}
+            setStartWage={setStartWage}
+            endWage={endWage}
+            setEndWage={setEndWage}
+          />
+      <div className={selectedJob.length > 0 ? styles.contentWithDetailContainer : styles.contentContainer}>
+        <div className={selectedJob.length > 0 ? styles.contentWithDetail : styles.content}>
           {filteredJobs.map((jobItem, index) => (
             <Card
-              key={index} // Unique key for each job
+              id={jobItem.id}
+              key={index}
               title={jobItem.title}
               icon={jobItem.icon}
               company={jobItem.company}
@@ -48,9 +51,14 @@ const HomePage = () => {
               salaryStart={jobItem.startWage}
               salaryEnd={jobItem.endWage}
               posted={jobItem.posted}
+              onClick={() => setSelectedJob((jobItem.id))}
+              selectedJob={selectedJob}
             />
           ))}
-        </div>
+        </div>  
+        {selectedJob.length > 0 && (
+          <JobDetail jobId={selectedJob} clearSelectedJob={() => setSelectedJob('')}/>
+        )}
       </div>
     </div>
   );

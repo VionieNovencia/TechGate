@@ -27,7 +27,7 @@ const Step1 = ({
       </Typography>
       <form onSubmit={handleNext} className={styles.gap}>
         <div>
-          <Typography variant="title1" >
+          <Typography variant="title2" >
             Email
           </Typography>
           <input

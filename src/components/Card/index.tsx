@@ -1,12 +1,17 @@
 import React from 'react';
+import { cx } from '@linaria/core';
 
 import Typography from '../Typography';
 
+import close from '../../assets/close-icon.png';
+
 import { formatCurrency } from '../../utils/formatCurrency';
 
-import { CardContainer, CardImage } from './styles';
+import styles from './styles';
+import BaseButton from '../BaseButton';
 
 const Card = ({
+  id,
 	title,
 	icon,
 	company,
@@ -14,7 +19,10 @@ const Card = ({
 	salaryStart,
 	salaryEnd,
 	posted,
+  onClick,
+  selectedJob,
 }:{
+  id: string
 	title: string,
 	icon: string,
 	company: string,
@@ -22,14 +30,23 @@ const Card = ({
 	salaryStart: number,
 	salaryEnd: number,
 	posted: number, 
+  onClick: () => void,
+  selectedJob: string,
 }) => {
-    return (
-      <CardContainer>
-        <CardImage>
+  return (
+    <div 
+      className={cx(
+        selectedJob.length > 0 ? styles.cardWithDetailContainer : styles.cardContainer,
+        id === selectedJob ? styles.darkBorder : ''
+      )} 
+      onClick={onClick}
+    >
+      <div className={styles.flexRow}>
+        <div className={styles.cardImage}>
           <img src={icon} alt='' width={60} height={60}/>
-        </CardImage>
+        </div>
         <div>
-          <Typography variant='title1'>
+          <Typography variant='title2'>
             {title}
           </Typography>
           <Typography>
@@ -45,8 +62,15 @@ const Card = ({
             posted {posted} days ago
           </Typography>
         </div>
-      </CardContainer>
-    );
+      </div>
+      <BaseButton 
+        onClick={() => {}}
+        className={styles.closeIcon}
+      >
+        <img src={close} alt='' width={24} height={24} />
+      </BaseButton>
+    </div>
+  );
 };
 
 export default Card;

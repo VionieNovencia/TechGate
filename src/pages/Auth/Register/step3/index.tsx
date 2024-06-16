@@ -51,7 +51,7 @@ const Step3 = ({
         {isHaveJobChecked && (
           <React.Fragment>
             <div>
-              <Typography variant="title1" >
+              <Typography variant="title2" >
                 Job Title
               </Typography>
               <input
@@ -63,7 +63,7 @@ const Step3 = ({
               />
             </div>
             <div>
-              <Typography variant="title1" >
+              <Typography variant="title2" >
                 Company Name
               </Typography>
               <input
@@ -75,7 +75,7 @@ const Step3 = ({
               />
             </div>
             <div>
-              <Typography variant="title1">
+              <Typography variant="title2">
                 Start Date
               </Typography>
               <div className={styles.dropdownContainer}>
@@ -104,7 +104,7 @@ const Step3 = ({
               </div>
             </div>
             <div>
-              <Typography variant="title1">
+              <Typography variant="title2">
                 End Date
               </Typography>
               <div className={styles.dropdownContainer}>

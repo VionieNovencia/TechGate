@@ -104,7 +104,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
                 className={styles.wageInput}
               />
             </div>
-            <Typography variant='title1'>
+            <Typography variant='title2'>
               -
             </Typography>
             <div className={styles.wageContainer}>

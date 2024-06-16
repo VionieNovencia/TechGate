@@ -39,7 +39,7 @@ const LoginPage = () => {
         </Typography>
         <form onSubmit={handleLogin} className={styles.gap}>
           <div>
-            <Typography variant="title1" >
+            <Typography variant="title2" >
               Email
             </Typography>
             <input
@@ -51,7 +51,7 @@ const LoginPage = () => {
             />
           </div>
           <div>
-            <Typography variant="title1" >
+            <Typography variant="title2" >
               Password
             </Typography>
             <div className={styles.passwordContainer}>
