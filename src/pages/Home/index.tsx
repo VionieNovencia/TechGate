@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 
 import styles from './styles';
 import SearchInput from './SearchField';
-import { Jobs } from '../../data/Job';
+import { JobList } from '../../data/Job';
 import JobDetail from '../../components/JobDetail';
 
 const HomePage = () => {
@@ -16,7 +16,7 @@ const HomePage = () => {
   const [selectedJob, setSelectedJob] = useState<string>('');
 
   const filteredJobs = useMemo(() => {
-    return Object.values(Jobs).filter((jobItem) => {
+    return Object.values(JobList).filter((jobItem) => {
       const matchesJob = job === '' || jobItem.title.toLowerCase().includes(job.toLowerCase());
       const matchesLocation = location === '' || jobItem.location.toLowerCase().includes(location.toLowerCase());
       const matchesStartWage = startWage === 0 || jobItem.startWage >= startWage;
@@ -29,15 +29,15 @@ const HomePage = () => {
     <div className={styles.container}>
       <Navbar />
       <SearchInput
-            job={job}
-            setJob={setJob}
-            location={location}
-            setLocation={setLocation}
-            startWage={startWage}
-            setStartWage={setStartWage}
-            endWage={endWage}
-            setEndWage={setEndWage}
-          />
+        job={job}
+        setJob={setJob}
+        location={location}
+        setLocation={setLocation}
+        startWage={startWage}
+        setStartWage={setStartWage}
+        endWage={endWage}
+        setEndWage={setEndWage}
+      />
       <div className={selectedJob.length > 0 ? styles.contentWithDetailContainer : styles.contentContainer}>
         <div className={selectedJob.length > 0 ? styles.contentWithDetail : styles.content}>
           {filteredJobs.map((jobItem, index) => (
@@ -53,6 +53,7 @@ const HomePage = () => {
               posted={jobItem.posted}
               onClick={() => setSelectedJob((jobItem.id))}
               selectedJob={selectedJob}
+              link={jobItem.link}
             />
           ))}
         </div>  

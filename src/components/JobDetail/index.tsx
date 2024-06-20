@@ -8,7 +8,7 @@ import closeIcon from '../../assets/close-icon.png';
 
 import Typography from "../Typography";
 
-import { Jobs } from "../../data/Job";
+import { JobList } from "../../data/Job";
 
 import styles from "./styles";
 import { formatCurrency } from "../../utils/formatCurrency";
@@ -21,7 +21,7 @@ interface JobDetailProps {
 
 const JobDetail: React.FC<JobDetailProps> = ({ jobId, clearSelectedJob }) => {
   const selectedJob = useMemo(() => {
-    return Jobs[jobId];
+    return JobList[jobId];
   }, [jobId]);
 
   if (!selectedJob) {

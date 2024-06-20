@@ -2,6 +2,7 @@ import React from 'react';
 import { cx } from '@linaria/core';
 
 import Typography from '../Typography';
+import NavLink from '../Link';
 
 import close from '../../assets/close-icon.png';
 
@@ -9,6 +10,7 @@ import { formatCurrency } from '../../utils/formatCurrency';
 
 import styles from './styles';
 import BaseButton from '../BaseButton';
+
 
 const Card = ({
   id,
@@ -20,18 +22,22 @@ const Card = ({
 	salaryEnd,
 	posted,
   onClick,
-  selectedJob,
+  selectedJob='',
+  link,
+  closeButton=true,
 }:{
   id: string
 	title: string,
-	icon: string,
-	company: string,
+	icon?: string,
+	company?: string,
 	location: string,
 	salaryStart: number,
 	salaryEnd: number,
 	posted: number, 
   onClick: () => void,
-  selectedJob: string,
+  selectedJob?: string,
+  link: string,
+  closeButton?: boolean,
 }) => {
   return (
     <div 
@@ -42,16 +48,20 @@ const Card = ({
       onClick={onClick}
     >
       <div className={styles.flexRow}>
-        <div className={styles.cardImage}>
-          <img src={icon} alt='' width={60} height={60}/>
-        </div>
+        {icon && (
+          <div className={styles.cardImage}>
+            <img src={icon} alt='' width={60} height={60}/>
+          </div>
+        )}
         <div>
           <Typography variant='title2'>
             {title}
           </Typography>
-          <Typography>
-            {company}
-          </Typography>
+          <NavLink to={link}>
+            <Typography>
+              {company}
+            </Typography>
+          </NavLink>
           <Typography>
             {location}
           </Typography>
@@ -63,12 +73,15 @@ const Card = ({
           </Typography>
         </div>
       </div>
-      <BaseButton 
-        onClick={() => {}}
-        className={styles.closeIcon}
-      >
-        <img src={close} alt='' width={24} height={24} />
-      </BaseButton>
+      {closeButton && (
+        <BaseButton 
+          onClick={() => {}}
+          className={styles.closeIcon}
+        >
+          <img src={close} alt='' width={24} height={24} />
+        </BaseButton>
+      )}
+      
     </div>
   );
 };

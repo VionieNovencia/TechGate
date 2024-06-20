@@ -2,6 +2,7 @@ import { css } from "@linaria/core";
 
 const cardContainer = css`
   width: 868px;
+  max-width: calc(100% - 50px);
   padding: 25px;
   border-radius: 15px;
   border: 1px solid #ccc;

@@ -16,9 +16,10 @@ interface Job {
     jobDescription: string[],
     requirements: string[],
   }
+  link: string;
 }
 
-export const Jobs: { [key: string]: Job } = {
+export const JobList: { [key: string]: Job } = {
   '1': {
     id: '1',
     title: 'Frontend Developer',
@@ -41,7 +42,8 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/traveloka',
   },
   '2': {
     id: '2',
@@ -65,7 +67,8 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/traveloka',
   },
   '3': {
     id: '3',
@@ -89,7 +92,8 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/traveloka',
   },
   '4': {
     id: '4',
@@ -113,7 +117,8 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/grab',
   },
   '5': {
     id: '5',
@@ -137,7 +142,8 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/grab',
   },
   '6': {
     id: '6',
@@ -161,6 +167,7 @@ export const Jobs: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
       ]
-    }
+    },
+    link: '/profile/grab',
   },
 };

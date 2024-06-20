@@ -8,6 +8,8 @@ import RegisterPage from './pages/Auth/Register';
 import ForgotPasswordPage from './pages/Auth/ForgotPassword';
 import NotificationPage from './pages/Notification';
 import NotificationDetailPage from './pages/NotificationDetail';
+import ProfilePage from './pages/Profile';
+import CompanyProfilePage from './pages/CompanyProfile';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/notification" element={<NotificationPage />} />
         <Route path="/notification/:id" element={<NotificationDetailPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:name" element={<CompanyProfilePage />} />
       </Routes>
     
     </BrowserRouter>
