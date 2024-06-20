@@ -25,6 +25,7 @@ const Card = ({
   selectedJob='',
   link,
   closeButton=true,
+  applyButton=false
 }:{
   id: string
 	title: string,
@@ -38,6 +39,7 @@ const Card = ({
   selectedJob?: string,
   link: string,
   closeButton?: boolean,
+  applyButton?: boolean,
 }) => {
   return (
     <div 
@@ -49,9 +51,7 @@ const Card = ({
     >
       <div className={styles.flexRow}>
         {icon && (
-          <div className={styles.cardImage}>
-            <img src={icon} alt='' width={60} height={60}/>
-          </div>
+          <img src={icon} alt='' width={60} height={60} className={styles.cardImage}/>
         )}
         <div>
           <Typography variant='title2'>
@@ -71,6 +71,14 @@ const Card = ({
           <Typography>
             posted {posted} days ago
           </Typography>
+          {applyButton && (
+            <BaseButton onClick={() => {}} className={styles.applyButton}>
+              <Typography color='white'>
+                Apply now
+              </Typography>
+            </BaseButton>
+          )}
+          
         </div>
       </div>
       {closeButton && (

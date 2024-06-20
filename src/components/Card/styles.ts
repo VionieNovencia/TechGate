@@ -41,7 +41,14 @@ const flexRow = css`
 
 const darkBorder = css`
   border: 1px solid #49534B;
-`
+`;
+
+const applyButton = css`
+  border-radius: 8px !important;
+  background-color: #FF7900 !important;
+  padding: 10px 20px !important;
+  margin-top: 10px !important;
+`;
 
 export default {
   cardContainer,
@@ -50,4 +57,5 @@ export default {
   closeIcon,
   flexRow,
   darkBorder,
+  applyButton
 }

@@ -9,6 +9,18 @@ const container = css`
   gap: 30px;
 `;
 
+const contentWithDetailContainer = css`
+  width: 1200px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 25px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+`;
+
 const contentContainer = css`
   width: 870px;
   border-radius: 15px;
@@ -19,6 +31,26 @@ const contentContainer = css`
   flex-direction: column;
   gap: 20px;
   box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+`;
+
+const outerContainer = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+const outerContainerWithDetail = css`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+`;
+
+const contentWithDetail = css`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: calc(100vh - 200px);
 `;
 
 const content = css`
@@ -50,4 +82,8 @@ export default {
   tab,
   tabContainer,
   activeTab,
+  contentWithDetail,
+  contentWithDetailContainer,
+  outerContainer,
+  outerContainerWithDetail
 }
