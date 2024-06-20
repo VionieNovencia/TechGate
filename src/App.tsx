@@ -10,6 +10,7 @@ import NotificationPage from './pages/Notification';
 import NotificationDetailPage from './pages/NotificationDetail';
 import ProfilePage from './pages/Profile';
 import CompanyProfilePage from './pages/CompanyProfile';
+import EventPage from './pages/Events';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/notification/:id" element={<NotificationDetailPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile/:name" element={<CompanyProfilePage />} />
+        <Route path="/events" element={<EventPage />} />
       </Routes>
     
     </BrowserRouter>
