@@ -58,7 +58,11 @@ const HomePage = () => {
           ))}
         </div>  
         {selectedJob.length > 0 && (
-          <JobDetail jobId={selectedJob} clearSelectedJob={() => setSelectedJob('')}/>
+          <JobDetail 
+            jobId={selectedJob}
+            clearSelectedJob={() => setSelectedJob('')}
+            isButtonHidden={false}
+          />
         )}
       </div>
     </div>

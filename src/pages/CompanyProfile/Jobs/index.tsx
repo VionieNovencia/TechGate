@@ -9,7 +9,6 @@ const Jobs = ({
   company: string
 }) => {
   const job = useMemo(() => Object.values(JobList).filter((job) => job.company.toLowerCase() === company), [company]);
-  console.log(job)
   return (
     <div className={styles.container}>
       {job.map((j) => (

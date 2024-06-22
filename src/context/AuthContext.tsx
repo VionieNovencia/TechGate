@@ -8,6 +8,10 @@ interface AuthContextType {
   logout: () => void;
   notification: NotificationType;
   setNotification: Dispatch<SetStateAction<NotificationType>>;
+  updateSavedJob: ({ jobId }: { jobId: string }) => void;
+  savedJob: string[];
+  appliedJob: string[];
+  addAppliedJob: ({ jobId }: { jobId: string }) => void
 }
 
 interface NotificationType {
@@ -26,6 +30,8 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     '3': false,
     '4': false,
   });
+  const [savedJob, setSavedJob] = useState<string[]>([]);
+  const [appliedJob, setAppliedJob] = useState<string[]>([]);
 
   const login = () => {
     setIsLoggedIn(true);
@@ -35,6 +41,19 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     setIsLoggedIn(false);
   };
 
+  const updateSavedJob = ({ jobId }: { jobId: string }) => {
+    if(savedJob.includes(jobId)) {
+      setSavedJob(prevSavedJobs => prevSavedJobs.filter(id => id !== jobId));
+    } else {
+      setSavedJob(prevSavedJobs => [...prevSavedJobs, jobId]);
+    }
+
+  }
+
+  const addAppliedJob = ({jobId}:{ jobId: string }) => {
+    setAppliedJob(prevAppliedJobs => [...prevAppliedJobs, jobId]);
+  }
+
   return (
     <AuthContext.Provider value={{ 
       isLoggedIn, 
@@ -43,6 +62,10 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       setIsLoggedIn,
       notification,
       setNotification,
+      updateSavedJob,
+      savedJob,
+      addAppliedJob,
+      appliedJob
     }}>
       {children}
     </AuthContext.Provider>

@@ -24,8 +24,8 @@ const outerContainer = css`
 
 const container = css`
   width: 445px;
-  padding: 30px 60px;
-  border-radius: 8px;
+  padding: 25px;
+  border-radius: 15px;
   align-items: center;
   background-color: #ffffff;
   overflow-y: auto;

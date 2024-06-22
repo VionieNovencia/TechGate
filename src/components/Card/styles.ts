@@ -32,7 +32,8 @@ const cardImage = css`
 const closeIcon = css`
   width: 24px;
   height: 24px;
-`
+`;
+
 const flexRow = css`
   display: flex;
   flex-direction: row;
