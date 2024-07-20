@@ -59,13 +59,60 @@ const buttonContainer = css`
   display: flex;
   flex-direction: row;
   justify-content: right;
-  gap: 20px
+  gap: 20px;
 `;
 
 const button = css`
   padding: 14px 30px;
   border-radius: 8px;
   border: 1px solid #003A79;
+`;
+
+const input = css`
+  color: transparent;
+  border-radius: 8px;
+  border: 1px solid #003A79;
+  width: 150px;
+  height: 52px;
+  display: inline-flex;
+
+  &::-webkit-file-upload-button {
+    display: none;
+  }
+
+  &::before {
+    content: 'Upload CV';
+    color: #003A79;
+    display: flex;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 10pt;
+    font-family: 'open sans';
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover::before {
+    border-color: black;
+  }
+
+  &:active {
+    outline: 0;
+  }
+
+  &:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+`;
+
+const cvItem = css`
+  padding: 0 15px;
 `;
 
 export default {
@@ -77,5 +124,7 @@ export default {
   mainProfileSection,
   flexRow,
   button,
-  buttonContainer
+  buttonContainer,
+  input,
+  cvItem,
 }
