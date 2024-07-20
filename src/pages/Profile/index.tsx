@@ -25,7 +25,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <BaseButton onClick={() => {}}>
-            <img src={pencilIcon} alt="" width={32} height={32} />
+            <img src={pencilIcon} alt="" width={25} height={25} />
           </BaseButton>
         </div>
         <div className={styles.buttonContainer}>
@@ -46,7 +46,7 @@ const ProfilePage = () => {
               About
             </Typography>
             <BaseButton onClick={() => {}}>
-            <img src={pencilGreyIcon} alt="" width={32} height={32} />
+            <img src={pencilGreyIcon} alt="" width={25} height={25} />
           </BaseButton>
           </div>
           <Typography>

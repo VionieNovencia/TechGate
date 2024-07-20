@@ -85,3 +85,28 @@ export const formQuestions = [
     "question": "Explain your process for troubleshooting and debugging an application issue."
   }
 ];
+
+export const codeQuestions = [
+  {
+    id: 1,
+    objective: "Write a function that returns the sum of two numbers.",
+    task: "Create a function named `sum` that takes two parameters, `a` and `b`, and returns their sum.",
+    inputSample: "sum(3, 5)",
+    outputSample: "8"
+  },
+  {
+    id: 2,
+    objective: "Write a function that checks if a string is a palindrome.",
+    task: "Create a function named `isPalindrome` that takes a string `str` and returns `true` if the string is a palindrome and `false` otherwise.",
+    inputSample: "isPalindrome('racecar')",
+    outputSample: "true"
+  },
+  {
+    id: 3,
+    objective: "Write a function that finds the maximum number in an array.",
+    task: "Create a function named `findMax` that takes an array of numbers and returns the maximum number in the array.",
+    inputSample: "findMax([1, 3, 7, 4, 2])",
+    outputSample: "7"
+  }
+];
+
