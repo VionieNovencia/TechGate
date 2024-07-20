@@ -6,6 +6,7 @@ const container = css`
   border: 1px solid #49534B;
   height: fit-content;
   max-width: 580px;
+  background-color: white;
 `;
 
 const headSection = css`

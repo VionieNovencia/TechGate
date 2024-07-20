@@ -14,7 +14,8 @@ import styles from "./styles";
 import { formatCurrency } from "../../utils/formatCurrency";
 import BaseButton from "../BaseButton";
 import { useAuth } from "../../context/AuthContext";
-import ApplyModal from "../ApplyModal";
+import ApplyModal from "./ApplyModal";
+import Stepper from "../ProgressBar";
 
 interface JobDetailProps {
   jobId: string;
@@ -140,6 +141,12 @@ const JobDetail: React.FC<JobDetailProps> = ({ jobId, clearSelectedJob, isButton
                 </li>
               </ul>
             ))}
+          </div>
+          <div className={styles.gap5px}>
+            <Typography variant="title2">
+              Application Process
+            </Typography>
+            <Stepper step={selectedJob.detail.steps} />
           </div>
         </div>
       )}

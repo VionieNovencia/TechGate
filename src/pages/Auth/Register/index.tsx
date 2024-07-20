@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-import Navbar from "../../../components/Navbar";
-
 import styles from '../styles';
 import Step1 from "./step1";
 import Step2 from "./step2";
@@ -23,7 +21,6 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.authContainer}>
         {currentStep === 1 && (
           <Step1 onNext={() => setCurrentStep(currentStep + 1)} />

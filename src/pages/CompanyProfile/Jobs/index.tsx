@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import Card from "../../../components/Card";
+import Card from "../../../components/JobCard";
 import { JobList } from "../../../data/Job";
 
 import styles from "./styles";

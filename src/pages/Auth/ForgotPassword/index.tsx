@@ -21,7 +21,6 @@ const ForgotPasswordPage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.authContainer}>
         {currentStep === 1 && (
           <Step1 

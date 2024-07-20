@@ -15,6 +15,7 @@ interface Job {
   detail?: {
     jobDescription: string[],
     requirements: string[],
+    steps: string[],
   }
   link: string;
 }
@@ -41,6 +42,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/traveloka',
@@ -66,6 +73,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/traveloka',
@@ -91,6 +104,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/traveloka',
@@ -116,6 +135,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/grab',
@@ -141,6 +166,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/grab',
@@ -166,6 +197,12 @@ export const JobList: { [key: string]: Job } = {
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
         'Collaborate with diverse teams to plan, prototype, build and maintain new features',
+      ],
+      steps: [
+        'CV Screening',
+        'Test',
+        'Interview',
+        'Result'
       ]
     },
     link: '/profile/grab',

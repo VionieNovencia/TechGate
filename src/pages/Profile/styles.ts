@@ -7,6 +7,7 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  margin-top: 30px;
 `;
 
 const contentContainer = css`

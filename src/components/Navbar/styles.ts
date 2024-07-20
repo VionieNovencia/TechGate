@@ -48,12 +48,19 @@ const buttonIcon = css`
   border: none;
   background: none;
   cursor: pointer;
-`
+`;
+
+const placeholder = css`
+  width: 100%;
+  height: 70px;
+`;
+
 export default {
   navbar,
   navbarContainerLoggedIn,
   navbarMenu,
   navbarMenuContainer,
   navbarContainer,
-  buttonIcon
+  buttonIcon,
+  placeholder,
 }

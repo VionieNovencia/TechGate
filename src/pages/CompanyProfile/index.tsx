@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import styles from './styles';
-import Navbar from "../../components/Navbar";
 import { CompanyList } from "../../data/Company";
 import Typography from "../../components/Typography";
 import { useParams } from "react-router-dom";
@@ -23,7 +22,6 @@ const CompanyProfilePage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.contentContainer}>
         <img src={CompanyList[name].cover} alt="" width={920} height={240} className={styles.coverImg}/>
         <div className={styles.content}>

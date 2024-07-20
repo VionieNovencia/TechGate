@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import Typography from "../../components/Typography";
 import BaseButton from "../../components/BaseButton";
 import { JobList } from "../../data/Job";
-import Card from "../../components/Card";
+import Card from "../../components/JobCard";
 import JobDetail from "../../components/JobDetail";
 import { useAuth } from "../../context/AuthContext";
 
@@ -28,7 +28,6 @@ const JobsPage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={selectedJob ? styles.contentWithDetailContainer : styles.contentContainer}>
         <Typography variant="headline" textAlign="center">
           Jobs

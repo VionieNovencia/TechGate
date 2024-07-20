@@ -5,14 +5,12 @@ import pencilIcon from '../../assets/pencil.png';
 import pencilGreyIcon from '../../assets/pencil-grey.png';
 
 import styles from './styles';
-import Navbar from "../../components/Navbar";
 import Typography from "../../components/Typography";
 import BaseButton from "../../components/BaseButton";
 
 const ProfilePage = () => {
   return(
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.contentContainer}>
         <div className={styles.mainProfileSection}>
           <div className={styles.content}>

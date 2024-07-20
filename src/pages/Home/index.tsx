@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 
-import Card from '../../components/Card';
+import Card from '../../components/JobCard';
 import Navbar from '../../components/Navbar';
 
 import styles from './styles';
@@ -27,7 +27,6 @@ const HomePage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <SearchInput
         job={job}
         setJob={setJob}

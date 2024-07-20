@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Modal from "../Modal";
-import Typography from "../Typography";
-import BaseButton from "../BaseButton";
+import Modal from "../../Modal";
+import Typography from "../../Typography";
+import BaseButton from "../../BaseButton";
 
-import close from '../../assets/close-icon.png';
+import close from '../../../assets/close-icon.png';
 
 import styles from './styles';
 

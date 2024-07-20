@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import HomePage from './pages/Home';
 import LoginPage from './pages/Auth/Login';
@@ -12,10 +12,20 @@ import ProfilePage from './pages/Profile';
 import CompanyProfilePage from './pages/CompanyProfile';
 import EventPage from './pages/Events';
 import JobsPage from './pages/Jobs';
+import Navbar from './components/Navbar';
+import TestPage from './pages/Test';
+import InterviewPage from './pages/Interview';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+
+  const shouldShowNavbar = () => {
+    return location.pathname !== '/interview';
+  };
+
   return (
-    <BrowserRouter>
+    <>
+      {shouldShowNavbar() && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -27,10 +37,17 @@ function App() {
         <Route path="/profile/:name" element={<CompanyProfilePage />} />
         <Route path="/events" element={<EventPage />} />
         <Route path="/jobs" element={<JobsPage />} />
+        <Route path="/test/:id" element={<TestPage />} />
+        <Route path="/interview" element={<InterviewPage />} />
       </Routes>
-    
-    </BrowserRouter>
+    </>
   );
-}
+};
 
-export default App;
+const AppWrapper = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;

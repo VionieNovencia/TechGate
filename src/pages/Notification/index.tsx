@@ -2,7 +2,6 @@ import React from "react";
 
 import styles from "./styles";
 import Typography from "../../components/Typography";
-import Navbar from "../../components/Navbar";
 import { Notifications } from "../../data/Notification";
 import Card from "./Card";
 import { useAuth } from "../../context/AuthContext";
@@ -22,7 +21,6 @@ const NotificationPage = () => {
   
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.contentContainer}>
         <Typography variant="title1">
           Notification

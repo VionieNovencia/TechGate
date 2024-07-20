@@ -8,7 +8,7 @@ import BaseButton from "../../components/BaseButton";
 
 import styles from './styles';
 import { Notifications } from "../../data/Notification";
-import Navbar from "../../components/Navbar";
+import Stepper from "../../components/ProgressBar";
 
 const NotificationDetailPage = () => {
   const { id } = useParams<{id: string}>();
@@ -21,7 +21,6 @@ const NotificationDetailPage = () => {
   
   return (
     <div className={styles.container}>
-      <Navbar />
       {!!notification && (
         <div className={styles.contentContainer}>
           <div className={styles.flexRow}>
@@ -41,6 +40,7 @@ const NotificationDetailPage = () => {
             </Typography>
           </div>
           <div className={styles.divider} />
+          {/* <Stepper /> */}
         </div>
       )} 
     </div>

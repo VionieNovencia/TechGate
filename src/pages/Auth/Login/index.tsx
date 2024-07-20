@@ -32,7 +32,6 @@ const LoginPage = () => {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <div className={styles.authContainer}>
         <Typography variant='headline' textAlign="center">
           Welcome!
