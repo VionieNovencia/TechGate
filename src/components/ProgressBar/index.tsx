@@ -19,7 +19,7 @@ const Stepper = ({
   isFailed?: boolean
 }) => {
   const getIcon = (idx: number) => {
-    if (isFailed) return failedIcon;
+    if (isFailed && idx === step.length-1) return failedIcon;
     if (idx < currentStep) return successIcon;
     if (idx === currentStep) return currentIcon;
     return incomingIcon;

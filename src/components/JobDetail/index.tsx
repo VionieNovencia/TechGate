@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import companyIcon from '../../assets/company-icon.png';
 import locationIcon from '../../assets/location.png';

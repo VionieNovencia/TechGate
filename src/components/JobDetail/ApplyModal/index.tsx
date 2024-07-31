@@ -52,7 +52,7 @@ const ApplyModal = ({
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className={styles.header}>
         <Typography variant="title1">Apply Job</Typography>
-        <BaseButton onClick={onClose} className={styles.closeIcon}>
+        <BaseButton onClick={onClose}>
           <img src={close} alt="" width={24} height={24} />
         </BaseButton>
       </div>

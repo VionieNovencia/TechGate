@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import styles from "./styles";
-import Navbar from "../../components/Navbar";
+
 import Typography from "../../components/Typography";
 import BaseButton from "../../components/BaseButton";
 import { JobList } from "../../data/Job";

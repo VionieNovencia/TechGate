@@ -7,7 +7,6 @@ import facebookIcon from '../../../assets/facebook.png';
 import hideIcon from '../../../assets/hide.png';
 import showIcon from '../../../assets/show.png';
 
-import Navbar from "../../../components/Navbar";
 import Typography from "../../../components/Typography";
 
 import styles from '../styles';
@@ -15,6 +14,7 @@ import styles from '../styles';
 import { useAuth } from "../../../context/AuthContext";
 import NavLink from "../../../components/Link";
 import BaseButton from "../../../components/BaseButton";
+import Input from "../../../components/Input";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -37,18 +37,13 @@ const LoginPage = () => {
           Welcome!
         </Typography>
         <form onSubmit={handleLogin} className={styles.gap}>
-          <div>
-            <Typography variant="title2" >
-              Email
-            </Typography>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className={styles.inputContainer}
-            />
-          </div>
+          <Input
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            isRequired
+          />
           <div>
             <Typography variant="title2" >
               Password

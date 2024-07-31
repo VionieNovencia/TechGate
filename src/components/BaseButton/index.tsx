@@ -7,7 +7,7 @@ const BaseButton = ({
   onClick,
   children,
   className='',
-  disabled= false
+  disabled= false,
 }:{
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void,
   children: React.ReactNode,

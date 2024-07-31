@@ -10,15 +10,34 @@ import Typography from "../../components/Typography";
 import BaseButton from "../../components/BaseButton";
 import Card from "./Card";
 import { education, experience, sertification } from "../../data/Profile";
+import ChangeProfileModal from "./ChangeProfileModal";
 
 const ProfilePage = () => {
   const [CVFileList, setCVFileList] = useState<File[]>([]);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState<boolean>(false);
+  const [firstName, setFirstName] = useState<string>('Michelle');
+  const [lastName, setLastName] = useState<string>('Lee');
+  const [location, setLocation] = useState<string>('Bandung, Jawa Barat');
 
   const handleCVFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setCVFileList((prevFileList) => [...prevFileList, file]);
     }
+  };
+
+  const handleSubmit = ({
+    newFirstName,
+    newLastName,
+    newLocation,
+  } : {
+    newFirstName: string,
+    newLastName: string,
+    newLocation: string,
+  }) => {
+    setFirstName(newFirstName);
+    setLastName(newLastName);
+    setLocation(newLocation);
   };
 
   return(
@@ -29,14 +48,14 @@ const ProfilePage = () => {
             <img src={profileIcon} alt="" width={160} height={160} />
             <div className={styles.text}>
               <Typography variant="headline" color="white">
-                Michelle Lee
+                {`${firstName} ${lastName}`}
               </Typography>
               <Typography variant="title1" color="white">
-                Bandung, Jawa Barat
+                {location}
               </Typography>
             </div>
           </div>
-          <BaseButton onClick={() => {}}>
+          <BaseButton onClick={() => setIsEditProfileModalOpen(true)}>
             <img src={pencilIcon} alt="" width={25} height={25} />
           </BaseButton>
         </div>
@@ -181,6 +200,14 @@ const ProfilePage = () => {
           </React.Fragment>
         )}
       </div>
+      <ChangeProfileModal
+        isOpen={isEditProfileModalOpen}
+        onClose={() => setIsEditProfileModalOpen(false)}
+        onSubmit={handleSubmit}
+        initialFirstName={firstName}
+        initialLastname={lastName}
+        initialLocation={location}
+      />
     </div>
   )
 }

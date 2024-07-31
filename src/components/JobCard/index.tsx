@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cx } from '@linaria/core';
 
 import Typography from '../Typography';
@@ -10,6 +10,8 @@ import { formatCurrency } from '../../utils/formatCurrency';
 
 import styles from './styles';
 import BaseButton from '../BaseButton';
+import ApplyModal from '../JobDetail/ApplyModal';
+import { useAuth } from '../../context/AuthContext';
 
 
 const Card = ({
@@ -41,15 +43,20 @@ const Card = ({
   closeButton?: boolean,
   applyButton?: boolean,
 }) => {
+  const [isApplyModalOpen, setIsApplyModalOpen] = useState<boolean>(false);
+  const { addAppliedJob } = useAuth();
+  const handleApply = () => {
+    addAppliedJob({jobId : id});
+  }
+
   return (
     <div 
       className={cx(
         selectedJob.length > 0 ? styles.cardWithDetailContainer : styles.cardContainer,
         id === selectedJob ? styles.darkBorder : ''
       )} 
-      onClick={onClick}
     >
-      <div className={styles.flexRow}>
+      <div className={styles.flexRow} onClick={onClick}>
         {icon && (
           <img src={icon} alt='' width={60} height={60} className={styles.cardImage}/>
         )}
@@ -72,7 +79,7 @@ const Card = ({
             posted {posted} days ago
           </Typography>
           {applyButton && (
-            <BaseButton onClick={() => {}} className={styles.applyButton}>
+            <BaseButton onClick={() => setIsApplyModalOpen(true)} className={styles.applyButton}>
               <Typography color='white'>
                 Apply now
               </Typography>
@@ -81,6 +88,11 @@ const Card = ({
           
         </div>
       </div>
+      <ApplyModal 
+        isOpen={isApplyModalOpen}
+        onClose={() => setIsApplyModalOpen(false)}
+        onApply={handleApply}
+      />
       {closeButton && (
         <BaseButton 
           onClick={() => {}}
