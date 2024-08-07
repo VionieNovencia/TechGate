@@ -48,7 +48,7 @@ const TestPage: React.FC = () => {
         <FormTest event={event} onSubmit={() => setIsConfirmationModalOpen(true)} />
       )}
       {isStart && !isDone && event.type ==='code' && (
-        <CodeTest event={event} onSubmit={() => setIsDone(true)}/>
+        <CodeTest event={event} onSubmit={() => setIsConfirmationModalOpen(true)}/>
       )}
       {isDone && (
         <div className={styles.center}>

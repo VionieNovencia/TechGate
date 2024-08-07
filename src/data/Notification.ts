@@ -9,6 +9,7 @@ type NotificationsPropTypes = {
   steps: string[];
   currentStep: number;
   status: string,
+  url?: string,
 }
 
 export const Notifications: { [key: string]: NotificationsPropTypes } = {
@@ -41,6 +42,7 @@ export const Notifications: { [key: string]: NotificationsPropTypes } = {
     ],
     currentStep: 2,
     status: 'pending',
+    url: '/interview'
   },
   '3' : {
     id: '3',
@@ -56,6 +58,7 @@ export const Notifications: { [key: string]: NotificationsPropTypes } = {
     ],
     currentStep: 1,
     status: 'pending',
+    url: '/test/2'
   },
   '4' : {
     id: '4',

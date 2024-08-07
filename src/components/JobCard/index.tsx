@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { cx } from '@linaria/core';
 
 import Typography from '../Typography';
@@ -44,10 +44,15 @@ const Card = ({
   applyButton?: boolean,
 }) => {
   const [isApplyModalOpen, setIsApplyModalOpen] = useState<boolean>(false);
-  const { addAppliedJob } = useAuth();
+  const { addAppliedJob, appliedJob } = useAuth();
   const handleApply = () => {
     addAppliedJob({jobId : id});
   }
+
+  const isApplied = useMemo(() => {
+    return (appliedJob.includes(id))
+  }, [appliedJob, id]);
+
 
   return (
     <div 
@@ -79,9 +84,13 @@ const Card = ({
             posted {posted} days ago
           </Typography>
           {applyButton && (
-            <BaseButton onClick={() => setIsApplyModalOpen(true)} className={styles.applyButton}>
-              <Typography color='white'>
-                Apply now
+            <BaseButton
+              onClick={() => setIsApplyModalOpen(true)}
+              className={isApplied ? styles.appliedButton : styles.applyButton}
+              disabled={isApplied}
+            >
+              <Typography color={isApplied ? '#FF7900' : 'white'}>
+                {isApplied ? 'Applied' : 'Apply now'}
               </Typography>
             </BaseButton>
           )}

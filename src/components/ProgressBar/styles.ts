@@ -22,6 +22,15 @@ const bar = css`
   top: 20px;
 `;
 
+const currentBar = css`
+  width: 5px;
+  height: 100px;
+  background-color: #D9D9D9;
+  margin-left: 17px;
+  position: relative;
+  top: 20px;
+`
+
 const greyBar = css`
   width: 5px;
   height: 50px;
@@ -31,9 +40,25 @@ const greyBar = css`
   top: 20px;
 `;
 
+const currentStep = css`
+  display: flex;
+  flex-direction: row;
+`;
+
+const currentStepDetail = css`
+  margin-top: 40px;
+  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
 export default {
   container,
   flexRow,
   bar,
   greyBar,
+  currentBar,
+  currentStep,
+  currentStepDetail,
 }

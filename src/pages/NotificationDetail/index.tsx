@@ -40,7 +40,12 @@ const NotificationDetailPage = () => {
             </Typography>
           </div>
           <div className={styles.divider} />
-          <Stepper step={notification.steps} currentStep={notification.currentStep} isFailed={notification.status === 'failed'}/>
+          <Stepper
+            step={notification.steps}
+            currentStep={notification.currentStep}
+            isFailed={notification.status === 'failed'}
+            url={notification.url}
+          />
         </div>
       )} 
     </div>

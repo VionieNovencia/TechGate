@@ -24,14 +24,26 @@ const ApplyModal = ({
   const handleCVFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setCVFileList((prevFileList) => [...prevFileList, file]);
+      setCVFileList((prevFileList) => {
+        const newFileList = [...prevFileList, file];
+        if (newFileList.length === 1) {
+          setSelectedCVFileIndex(0);
+        }
+        return newFileList;
+      });
     }
   };
 
   const handleCLFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setCLFileList((prevFileList) => [...prevFileList, file]);
+      setCLFileList((prevFileList) => {
+        const newFileList = [...prevFileList, file];
+        if (newFileList.length === 1) {
+          setSelectedCLFile(`file-0`);
+        }
+        return newFileList;
+      });
     }
   };
 
@@ -120,7 +132,7 @@ const ApplyModal = ({
               
             </label>
           </div>
-          {CVFileList.length > 0 && (
+          {CLFileList.length > 0 && (
             <div>
               {CLFileList.map((file, index) => (
                 <div key={index} className={styles.fileItem}>

@@ -50,6 +50,13 @@ const applyButton = css`
   margin-top: 10px !important;
 `;
 
+const appliedButton = css`
+  border: 1px solid #FF7900 !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  margin-top: 10px !important;
+`;
+
 export default {
   cardContainer,
   cardWithDetailContainer,
@@ -57,5 +64,6 @@ export default {
   closeIcon,
   flexRow,
   darkBorder,
-  applyButton
+  applyButton,
+  appliedButton,
 }

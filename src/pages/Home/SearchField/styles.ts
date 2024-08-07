@@ -1,4 +1,4 @@
-import { css } from "@linaria/core";
+import { css } from '@linaria/core';
 
 const container = css`
   width: 876px;
@@ -36,11 +36,19 @@ const searchContainer = css`
   gap: 5px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   background-color: white;
+  position: relative;
 `;
 
 const searchInput = css`
-  width: 300px; 
+  width: 230px; 
   border: none;
+  appearance: none; /* Hides the dropdown arrow in most browsers */
+  -webkit-appearance: none; /* Hides the dropdown arrow in WebKit browsers */
+  -moz-appearance: none; /* Hides the dropdown arrow in Firefox */
+  
+  &::-ms-expand {
+    display: none; /* Hides the dropdown arrow in Internet Explorer and Edge */
+  }
 
   &:focus {
     outline: none;
@@ -61,6 +69,49 @@ const wageContainer = css`
   align-items: center;
 `;
 
+const clearButton = css`
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const suggestionsContainer = css`
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+`;
+
+const suggestion = css`
+  padding: 10px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
 export default {
   container,
   searchContainer,
@@ -68,4 +119,7 @@ export default {
   wageInput,
   flexRow,
   wageContainer,
-}
+  clearButton,
+  suggestionsContainer,
+  suggestion,
+};
